@@ -60,9 +60,9 @@ async function procMess(message) {
       ) {
         await cl.sendText(message.chatId, "Spam protected group");
       } else {
-        const text = `hello ${message.chat.groupMetadata.participants.map(
+        const text = `HELLOOOOOOOOO BC ${message.chat.groupMetadata.participants.map(
           (participant) =>
-            `\nHEY LAWDE @${
+            `\nHEHE NOOB @${
               typeof participant.id === "string"
                 ? participant.id.split("@")[0]
                 : participant.user
@@ -87,7 +87,7 @@ async function procMess(message) {
         await cl.sendText(message.chatId, leaveText);
         await cl.leaveGroup(message.chat.id);
       } else {
-        await cl.reply(message.chatId, "You're not an admin,LOLLLLLLLL!", message.id);
+        await cl.reply(message.chatId, "You're not an admin,LOLLLLLLLL!         (BHAKK MAADARCHOD)", message.id);
       }
     }
   } else if (
