@@ -13,17 +13,17 @@ const helpText =
 #sticker: write in caption of a image/video/gif to turn it into sticker
 #spam: tag everyone in a message in a group (only works in a group)
 #join https://chat.whatsapp.com/shdkashdh: joing a group with invite link
-#leave: i hope you dont use this (only works in a group if sent by an admin)
+#leave: i hope you don't use this (only works in a group if sent by an admin)
 #help: to recive this same message
 #menu: same as help but some people prefer it
-maadarchod spam mat karna zyada maachhud jaati h 
+maadarchod zyada spam mat karna (don't spam excessively , that would give this bot a heartattack)
 Add '#nospam' in group description to stop spam commands
 
 `;
 
 const leaveText =
   process.env.LEAVE_TEXT ||
-  "GAYA KHATAM TATA BYE BYE GOODBYE GAYA";
+  "GAYA KHATAM TATA BYE BYE GOODBYE GAYA                      ALLAHUAKBARRRRRRRR(boom) ";
 
 const server = express();
 const PORT = parseInt(process.env.PORT) || 3000;
@@ -62,7 +62,7 @@ async function procMess(message) {
       } else {
         const text = `hello ${message.chat.groupMetadata.participants.map(
           (participant) =>
-            `\n🌚 @${
+            `\nHEY LAWDE @${
               typeof participant.id === "string"
                 ? participant.id.split("@")[0]
                 : participant.user
@@ -87,14 +87,14 @@ async function procMess(message) {
         await cl.sendText(message.chatId, leaveText);
         await cl.leaveGroup(message.chat.id);
       } else {
-        await cl.reply(message.chatId, "You're not an admin!", message.id);
+        await cl.reply(message.chatId, "You're not an admin,LOLLLLLLLL!", message.id);
       }
     }
   } else if (
     ["image", "video"].includes(message.type) &&
     message.caption === "#sticker"
   ) {
-    await cl.sendText(message.chatId, "Processing sticker");
+    await cl.sendText(message.chatId, "Processing sticker(BANN RAHA H BSDK RUK JAA)");
     const mediaData = await decryptMedia(message);
     const dataUrl = `data:${message.mimetype};base64,${mediaData.toString(
       "base64"
