@@ -17,13 +17,14 @@ const helpText =
 #help: to recive this same message
 #menu: same as help but some people prefer it
 maadarchod zyada spam mat karna (don't spam excessively , that would give this bot a heartattack)
-Add '#nospam' in group description to stop spam commands
+Add '#nospam' in group description to stop spam commands 
+BOT would crash if someone spams commands, if it crashes wait for some time :)
 
 `;
 
 const leaveText =
   process.env.LEAVE_TEXT ||
-  "GAYA KHATAM TATA BYE BYE GOODBYE GAYA                      ALLAHUAKBARRRRRRRR(boom) ";
+  "GAYA KHATAM TATA BYE BYE GOODBYE GAYA                                    ALLAHUAKBARRRRRRRR💣💥 ";
 
 const server = express();
 const PORT = parseInt(process.env.PORT) || 3000;
@@ -62,7 +63,7 @@ async function procMess(message) {
       } else {
         const text = `HELLOOOOOOOOO BC ${message.chat.groupMetadata.participants.map(
           (participant) =>
-            `\nHEHE NOOB @${
+            `\n😃 @${
               typeof participant.id === "string"
                 ? participant.id.split("@")[0]
                 : participant.user
@@ -87,7 +88,7 @@ async function procMess(message) {
         await cl.sendText(message.chatId, leaveText);
         await cl.leaveGroup(message.chat.id);
       } else {
-        await cl.reply(message.chatId, "You're not an admin,LOLLLLLLLL!         (BHAKK MAADARCHOD)", message.id);
+        await cl.reply(message.chatId, "You're not an admin coz you are ugly ,LOLLLLLLLL!         (BHAKK MAADARCHOD)", message.id);
       }
     }
   } else if (
