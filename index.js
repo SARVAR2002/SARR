@@ -13,18 +13,16 @@ const helpText =
 #sticker: write in caption of a image/video/gif to turn it into sticker
 #spam: tag everyone in a message in a group (only works in a group)
 #join https://chat.whatsapp.com/shdkashdh: joing a group with invite link
-#leave: i hope you don't use this (only works in a group if sent by an admin)
+#leave: i hope you dont use this (only works in a group if sent by an admin)
 #help: to recive this same message
 #menu: same as help but some people prefer it
-maadarchod zyada spam mat karna (don't spam excessively , that would give this bot a heartattack)
-Add '#nospam' in group description to stop spam commands 
-BOT would crash if someone spams commands, if it crashes wait for some time :)
-
+Add '#nospam' in group description to stop spam commands
+All commands except #spam & #leave work in PM/DM
 `;
 
 const leaveText =
   process.env.LEAVE_TEXT ||
-  "GAYA KHATAM TATA BYE BYE GOODBYE GAYA                                    ALLAHUAKBARRRRRRRR💣💥 ";
+  "GAYA KHATAM TATA BYE BYE GOODBYE GAYA                      ALLAHUAKBARRRRRRRR💣💥";
 
 const server = express();
 const PORT = parseInt(process.env.PORT) || 3000;
@@ -61,7 +59,7 @@ async function procMess(message) {
       ) {
         await cl.sendText(message.chatId, "Spam protected group");
       } else {
-        const text = `HELLOOOOOOOOO BC ${message.chat.groupMetadata.participants.map(
+        const text = `hello ${message.chat.groupMetadata.participants.map(
           (participant) =>
             `\n😃 @${
               typeof participant.id === "string"
@@ -88,14 +86,14 @@ async function procMess(message) {
         await cl.sendText(message.chatId, leaveText);
         await cl.leaveGroup(message.chat.id);
       } else {
-        await cl.reply(message.chatId, "You're not an admin coz you are ugly ,LOLLLLLLLL!         (BHAKK MAADARCHOD)", message.id);
+        await cl.reply(message.chatId, "You're not an admin as you r dumb , LOLLLLLLLLLLLLLLLL (BHAKKK BSDK)", message.id);
       }
     }
   } else if (
     ["image", "video"].includes(message.type) &&
     message.caption === "#sticker"
   ) {
-    await cl.sendText(message.chatId, "Processing sticker(BANN RAHA H BSDK RUK JAA)");
+    await cl.sendText(message.chatId, "Processing sticker,HA RUKJA BSDK MERI JAAN LEGA KYA");
     const mediaData = await decryptMedia(message);
     const dataUrl = `data:${message.mimetype};base64,${mediaData.toString(
       "base64"
