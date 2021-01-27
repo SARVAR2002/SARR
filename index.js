@@ -110,6 +110,37 @@ async function procMess(message) {
 /**
  * Add message to process queue
  */
+	case 'tts':
+		if (!isRegistered) return await benny.reply(from, `Nomor kamu belum terdafar! \n\nSilahkan register dengan format:\n#daftar`, id)
+            if (args.length === 1) return benny.reply(from, 'Kirim perintah *#tts [id, en, jp, ar] [teks]*, contoh *#tts id halo semua*')
+            benny.reply(from, mess.wait, id)
+			const ttsId = require('node-gtts')('id')
+            const ttsEn = require('node-gtts')('en')
+	    const ttsJp = require('node-gtts')('ja')
+            const ttsAr = require('node-gtts')('ar')
+            const dataText = body.slice(8)
+            if (dataText === '') return benny.reply(from, 'Baka?', id)
+            if (dataText.length > 65536) return benny.reply(from, 'Teks terlalu panjang!', id)
+            var dataBhs = body.slice(5, 7)
+	    if (dataBhs == 'id') {
+                ttsId.save('./media/tts/resId.mp3', dataText, function () {
+                    benny.sendPtt(from, './media/tts/resId.mp3', id)
+                })
+            } else if (dataBhs == 'en') {
+                ttsEn.save('./media/tts/resEn.mp3', dataText, function () {
+                    benny.sendPtt(from, './media/tts/resEn.mp3', id)
+                })
+            } else if (dataBhs == 'jp') {
+                ttsJp.save('./media/tts/resJp.mp3', dataText, function () {
+                    benny.sendPtt(from, './media/tts/resJp.mp3', id)
+                })
+	    } else if (dataBhs == 'ar') {
+                ttsAr.save('./media/tts/resAr.mp3', dataText, function () {
+                    benny.sendPtt(from, './media/tts/resAr.mp3', id)
+                })
+            } else {
+                benny.reply(from, 'Masukkan data bahasa : [id] untuk indonesia, [en] untuk inggris, [jp] untuk jepang, dan [ar] untuk arab', id)
+            }
 const processMessage = (message) =>
   queue.add(async () => {
     try {
