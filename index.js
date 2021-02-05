@@ -9,16 +9,26 @@ const helpOnInGroup = ["#help", "#menu"];
 
 const helpText =
   process.env.HELP_TEXT ||
-  `Commands:
-#sticker: write in caption of a image/video/gif to turn it into sticker
-#spam: tag everyone in a message in a group (only works in a group)
-#join https://chat.whatsapp.com/shdkashdh: joing a group with invite link
-#leave: i hope you don't use this (only works in a group if sent by an admin)
-#help: to recive this same message
-#menu: same as help but some people prefer it
-maadarchod zyada spam mat karna (don't spam excessively , that would give this bot a heartattack)
-Add '#nospam' in group description to stop spam commands 
-BOT would crash if someone spams commands, if it crashes wait for some time :)
+  `                        *COMMANDS*:
+
+*#sticker*:write in caption of a image/video/gif to turn it into sticker
+
+
+*#spam*: tag everyone in a message in a group (only works in a group)
+       (If you don't want soomeone to spam then write *#nospam* in group description)
+
+*#join https://chat.whatsapp.com/abcdefg*: to invite me into a group
+
+
+*#leave*: i hope you don't use this (only works in a group if sent by an admin)
+
+
+*#help*: to recive command list or to check if iam still alive
+
+
+MAADARCHOD zyada spam mat karna (don't spam excessively)
+BOT would crash if someone spams commands, if it crashes wait for some time 
+SUNN LIYAAAA, AB MAAA CHUDA
 
 `;
 
@@ -63,7 +73,7 @@ async function procMess(message) {
       } else {
         const text = `HELLOOOOOOOOO BC ${message.chat.groupMetadata.participants.map(
           (participant) =>
-            `\n😃 @${
+            `\nHEHE NOOOOB @${
               typeof participant.id === "string"
                 ? participant.id.split("@")[0]
                 : participant.user
